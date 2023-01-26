@@ -1,0 +1,72 @@
+<main style="margin-top: 58px">
+  <div class="container pt-4">
+    <section class="mb-4">
+      <div class="card">
+        <div class="card-header text-center py-3">
+          <h5 class="mb-0 text-center">
+            <strong>Current Market Prices </strong>
+          </h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Symbol</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>1 hour</th>
+                  <th>24 hour</th>
+                  <th>7 days</th>
+                  <th>24h Volume</th>
+                  <th>Market Cap</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of datarray; index as i">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ item.symbol }}</td>
+                  <td>{{item.name}}</td>
+                  <td>${{item.quotes.USD.price }}</td>
+                  <!-- <td >
+                    <span [ngClass]="{'text-success': valueindicate(item.quotes.USD.percent_change_1h) , 
+                    'text-danger': !valueindicate(item.quotes.USD.percent_change_1h)}">
+                      <i *ngIf="valueindicate(item.quotes.USD.percent_change_1h)" class="fas fa-caret-up me-1"></i>
+                      <i *ngIf="!valueindicate(item.quotes.USD.percent_change_1h)" class="fas fa-caret-down me-1"></i>
+                      {{ item.quotes.USD.percent_change_1h | number : "1.0-2" }}%
+                    </span>
+                  </td> -->
+                  <td >
+                    <span [ngClass]="{'text-success': valueindicate(item.quotes.USD.percent_change_1h) , 
+                    'text-danger': !valueindicate(item.quotes.USD.percent_change_1h)}">
+                      {{ item.quotes.USD.percent_change_1h | number : "1.0-2" }}%
+                    </span>
+                  </td>
+                  <td >
+                    <span [ngClass]="{'text-success': valueindicate(item.quotes.USD.percent_change_24h) , 
+                    'text-danger': !valueindicate(item.quotes.USD.percent_change_24h)}">
+                      <i *ngIf="valueindicate(item.quotes.USD.percent_change_24h)" class="fas fa-caret-up me-1"></i>
+                      <i *ngIf="!valueindicate(item.quotes.USD.percent_change_24h)" class="fas fa-caret-down me-1"></i>
+                      {{ item.quotes.USD.percent_change_24h | number : "1.0-2" }}%
+                    </span>
+                  </td>
+                  <td >
+                    <span [ngClass]="{'text-success': valueindicate(item.quotes.USD.percent_change_7d) , 
+                    'text-danger': !valueindicate(item.quotes.USD.percent_change_7d)}">
+                      <i *ngIf="valueindicate(item.quotes.USD.percent_change_7d)" class="fas fa-caret-up me-1"></i>
+                      <i *ngIf="!valueindicate(item.quotes.USD.percent_change_7d)" class="fas fa-caret-down me-1"></i>
+                      {{ item.quotes.USD.percent_change_7d | number : "1.0-2" }}%
+                    </span>
+                  </td>
+                  <td>$ {{ item.quotes.USD.volume_24h | roundoff }}</td>
+                  <td>$ {{ item.quotes.USD.market_cap | roundoff }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

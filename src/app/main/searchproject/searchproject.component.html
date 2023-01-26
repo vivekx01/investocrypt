@@ -1,0 +1,53 @@
+<main style="margin-top: 70px;">
+    <div class="container pt-4">
+        <section class="mb-4">
+          <div class="card">
+            <div class="card-header text-center py-3">
+              <h5 class="mb-0 text-center">
+                <strong>Search Project </strong>
+              </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-8">
+                        <input autocomplete="off" type="search" class="form-control rounded"
+                          placeholder='Search' />
+                    </div>
+                    <div class="col-2">
+                        <button class="btn" style="background-color:#0cac9c; color: white;margin-top: -2px;">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>Project ID</th>
+                        <th>Symbol</th>
+                        <th>Name</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of datarray; index as i">
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.symbol }}</td>
+                        <td>{{ item.name }}</td>
+                        <td><button class="btn btn-block" style="background-color: #0cac9c; color: white;">Get Data</button></td>
+                      </tr>
+                    <tbody>
+                  </table>
+                </div>
+              
+            </div>
+          </div>
+        </section>
+      </div>
+        
+        <!-- Search form -->
+            
+   
+</main>
