@@ -28,12 +28,12 @@
             <form>
               <!-- Email input -->
               <div class="input-group md-form form-sm form-3 pl-0">
-                <input type="email" class="form-control mt-0 amber-border" placeholder="Enter Email Address" aria-describedby="basic-addon9">
+                <input type="email" name="email" class="form-control mt-0 amber-border" placeholder="Enter Email Address" aria-describedby="basic-addon9">
               </div>
   
               <!-- Password input -->
               <div class="input-group md-form form-sm form-3 pl-0">
-                <input type="password" class="form-control mt-0 amber-border" placeholder="Enter Password" aria-describedby="basic-addon9">
+                <input type="password" name="password" class="form-control mt-0 amber-border" placeholder="Enter Password" aria-describedby="basic-addon9">
               </div>
   
               <!-- 2 column grid layout for inline styling -->
@@ -49,8 +49,8 @@
               </div>
   
               <!-- Submit button -->
-              <button type="button" class="btn btn-block mb-4" style="background-color: #0cac9c; color: white;">Sign in</button>
-              <button type="button" class="btn btn-primary btn-block mb-4">
+              <button type="submit" class="btn btn-block mb-4" style="background-color: #0cac9c; color: white;">Sign in</button>
+              <button type="button" (click)="login()" class="btn btn-primary btn-block mb-4">
                 <i class="fab fa-google"></i> Sign in with Google
               </button>
             </form>
