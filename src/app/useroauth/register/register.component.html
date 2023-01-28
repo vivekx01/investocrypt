@@ -20,21 +20,21 @@
             <div class="col-lg-6 mb-5 mb-lg-0 mt-2">
               <div class="card">
                 <div class="card-body py-5 px-md-5">
-                  <form>
+                  <form #f="ngForm" (ngSubmit)="register(f)">
                     <!-- 2 column grid layout with text inputs for the first and last names -->
                     <div class="row">
                       <div class="col-md-6 mb-4">
                         <!-- Email input -->
                         <div class="input-group md-form form-sm form-3 pl-0">
                           <input type="text" class="form-control mt-0 amber-border" placeholder="First Name"
-                            aria-describedby="basic-addon9" />
+                          ngModel name="fname" aria-describedby="basic-addon9" required>
                         </div>
                       </div>
                       <div class="col-md-6 mb-4">
                         <!-- Password input -->
                         <div class="input-group md-form form-sm form-3 pl-0">
                           <input type="text" class="form-control mt-0 amber-border" placeholder="Last Name"
-                            aria-describedby="basic-addon9" />
+                          ngModel name="lname" aria-describedby="basic-addon9" required>
                         </div>
                       </div>
                     </div>
@@ -42,13 +42,13 @@
                     <!-- Email input -->
                     <div class="input-group md-form form-sm form-3 pl-0">
                       <input type="email" class="form-control mt-0 amber-border" placeholder="Enter Email Address"
-                        aria-describedby="basic-addon9" />
+                      ngModel name="email" aria-describedby="basic-addon9" required>
                     </div>
 
                     <!-- Password input -->
                     <div class="input-group md-form form-sm form-3 pl-0">
                       <input type="password" class="form-control mt-0 amber-border" placeholder="Enter Password"
-                        aria-describedby="basic-addon9" />
+                      ngModel name="password" aria-describedby="basic-addon9" required>
                     </div>
                     <!-- 2 column grid layout for inline styling -->
                     <div class="row mb-4">
@@ -65,7 +65,7 @@
 
                     <!-- Register buttons -->
                     <div class="text-center">
-                      <button type="button" class="btn btn-primary btn-block mb-4">
+                      <button type="button" (click)="register_g()" class="btn btn-primary btn-block mb-4">
                         <i class="fab fa-google"></i> Sign up with Google
                       </button>
                     </div>

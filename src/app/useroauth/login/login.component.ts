@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
       (data:any)=>{
         if (data!==null){
           JSON.stringify(localStorage.setItem('user',JSON.stringify(data)))
-          console.log(JSON.parse(localStorage.getItem('user')!));
         }
         
       }

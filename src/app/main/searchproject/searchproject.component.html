@@ -9,15 +9,15 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-1"></div>
+                    <div class="col-2"></div>
                     <div class="col-8">
                         <input autocomplete="off" type="search" class="form-control rounded"
-                          placeholder='Search' />
+                          placeholder='Search' [(ngModel)]="term" />
                     </div>
                     <div class="col-2">
-                        <button class="btn" style="background-color:#0cac9c; color: white;margin-top: -2px;">
-                            <i class="fas fa-search"></i>
-                        </button>
+                        <!-- <button class="btn" style="background-color:#0cac9c; color: white;margin-top: -2px;">
+                            
+                        </button> -->
                     </div>
                     <div class="col-1"></div>
                 </div>
@@ -32,11 +32,11 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let item of datarray; index as i">
+                      <tr *ngFor="let item of datarray | customFilter:term">
                         <td>{{ item.id }}</td>
                         <td>{{ item.symbol }}</td>
                         <td>{{ item.name }}</td>
-                        <td><button class="btn btn-block" style="background-color: #0cac9c; color: white;">Get Data</button></td>
+                        <td><a [routerLink]="['/searchdetails', item.id]" class="btn btn-block" style="background-color: #0cac9c; color: white;">Show Details</a></td>
                       </tr>
                     <tbody>
                   </table>

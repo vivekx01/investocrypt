@@ -8,6 +8,7 @@ import { AlternativeapiService } from 'src/app/services/alternativeapi.service';
 })
 export class SearchprojectComponent implements OnInit{
   datarray:any =[]
+  term: string = '';
   constructor(private apiservice:AlternativeapiService){}
   ngOnInit(): void {
     this.apiservice.getlistings().subscribe((res:any)=>{

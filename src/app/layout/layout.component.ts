@@ -8,11 +8,16 @@ import { FirebaseauthService } from '../services/firebaseauth.service';
 })
 export class LayoutComponent implements OnInit {
   user;
+  authbyGoogle:boolean=false;
   constructor(private fauth:FirebaseauthService){
     this.user= fauth.authInfo
+    this.fauth.authInfo.subscribe((res)=>{
+      if(res?.providerData[0]?.providerId=="google.com"){
+        this.authbyGoogle=true;
+      }
+    })
   }
   ngOnInit(): void {
-    // this.user=JSON.parse(localStorage.getItem('user') || '{}')
   }
   logout(){
     this.fauth.userlogout();

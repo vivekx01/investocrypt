@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
-
-import {from} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { tap } from "rxjs/operators";
 @Injectable({
@@ -32,17 +30,12 @@ export class AlternativeapiService {
     )
   }
   getlistings(): Observable<any> {
-    // return from(
-    //   fetch(
-    //     'https://api.alternative.me/v2/listings', // the url you are trying to access
-    //     {
-    //       method: 'GET', // GET, POST, PUT, DELETE
-    //       mode: 'no-cors' // the most important option
-    //     }
-    //   ));
     return this.http.get('https://cors-vk.onrender.com/https://api.alternative.me/v2/listings',
     {headers: 
       {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
     )
+  }
+  getcoinbyid(id:any){
+    return this.http.get(`https://api.alternative.me/v2/ticker/${id}/`)
   }
 }

@@ -1,0 +1,102 @@
+<main style="margin-top: 58px">
+    <div class="container pt-4">
+      <section class="mb-4">
+        <div class="card">
+          <div class="card-header text-center py-3">
+            <h5 class="mb-0 text-center">
+              <strong>{{projectdata.name}} Market Details</strong>
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <strong>Project Name: </strong>
+                </div>
+                <div class="col">
+                    {{projectdata.name}}
+                </div>
+                <div class="col">
+                    <strong>Symbol: </strong> 
+                </div>
+                <div class="col">
+                    {{projectdata.symbol}}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <strong>Current Market Price: </strong>
+                </div>
+                <div class="col">
+                    $ {{projectdata.quotes.USD.price}}
+                </div>
+                <div class="col">
+                    <strong>1h Percent Change:</strong>
+                </div>
+                <div class="col">
+                    <span [ngClass]="{'text-success': valueindicate(projectdata.quotes.USD.percent_change_1h) , 
+                    'text-danger': !valueindicate(projectdata.quotes.USD.percent_change_1h)}">
+                    <i *ngIf="valueindicate(projectdata.quotes.USD.percent_change_1h)" class="fas fa-caret-up me-1"></i>
+                    <i *ngIf="!valueindicate(projectdata.quotes.USD.percent_change_1h)" class="fas fa-caret-down me-1"></i>
+                    {{projectdata.quotes.USD.percent_change_1h | number : "1.0-2"}} 
+                </span>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <strong>24h Percent Change:</strong>
+                </div>
+                <div class="col">
+                    <span [ngClass]="{'text-success': valueindicate(projectdata.quotes.USD.percent_change_24h) , 
+                    'text-danger': !valueindicate(projectdata.quotes.USD.percent_change_24h)}">
+                    <i *ngIf="valueindicate(projectdata.quotes.USD.percent_change_24h)" class="fas fa-caret-up me-1"></i>
+                    <i *ngIf="!valueindicate(projectdata.quotes.USD.percent_change_24h)" class="fas fa-caret-down me-1"></i>
+                    {{projectdata.quotes.USD.percent_change_24h | number : "1.0-2"}} %
+                </span>
+                </div>
+                <div class="col">
+                    <strong>7d Percent Change:</strong>
+                </div>
+                <div class="col">
+                    <span [ngClass]="{'text-success': valueindicate(projectdata.quotes.USD.percent_change_7d) , 
+                    'text-danger': !valueindicate(projectdata.quotes.USD.percent_change_7d)}">
+                    <i *ngIf="valueindicate(projectdata.quotes.USD.percent_change_7d)" class="fas fa-caret-up me-1"></i>
+                    <i *ngIf="!valueindicate(projectdata.quotes.USD.percent_change_7d)" class="fas fa-caret-down me-1"></i>
+                    {{projectdata.quotes.USD.percent_change_7d | number : "1.0-2"}} %
+                </span>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12">
+                    <strong>24h Market Volume: </strong>$ {{projectdata.quotes.USD.volume_24h}} ({{projectdata.quotes.USD.volume_24h|roundoff}})
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <strong>Circulating Supply:</strong>
+                </div>
+                <div class="col">
+                    $ {{projectdata.circulating_supply}} 
+                </div>
+                <div class="col">
+                    <strong>Maximum Supply:</strong>
+                </div>
+                <div class="col">
+                    $ {{projectdata.max_supply}}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <strong>Total Market Cap: </strong>$ {{projectdata.quotes.USD.market_cap}}({{projectdata.quotes.USD.market_cap | roundoff}})
+                </div>
+            </div>
+            
+          </div>
+        </div>
+    </section>
+    </div>
+  </main>

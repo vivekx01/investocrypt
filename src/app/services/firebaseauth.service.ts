@@ -10,23 +10,24 @@ import { Observable } from 'rxjs';
 })
 export class FirebaseauthService {
   public authInfo: Observable<firebase.User | null>;
+  public authType:any;
   constructor(private http: HttpClient, private auth: AngularFireAuth, private router: Router) {
     this.authInfo = this.auth.authState;
   }
   userlogin() {
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((res)=>{
+    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((res) => {
       this.router.navigate([''])
     })
   }
   userloginwithep(email: string, password: string) {
     this.auth.signInWithEmailAndPassword(email, password).then((res) => {
       if (res.user?.emailVerified == true) {
+        localStorage.setItem('token', 'true');
         this.router.navigate(['']);
       } else {
-        alert("Please verify your email before signing in !");
+        alert("Account Created! Please make sure to verify your email before signing in !");
+        this.router.navigate(['/login']);
       }
-      localStorage.setItem('token', 'true');
-      this.router.navigate(['']);
 
     }, err => {
       alert(err.message);
