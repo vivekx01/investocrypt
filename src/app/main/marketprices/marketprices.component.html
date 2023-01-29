@@ -29,14 +29,6 @@
                   <td>{{ item.symbol }}</td>
                   <td>{{item.name}}</td>
                   <td>${{item.quotes.USD.price }}</td>
-                  <!-- <td >
-                    <span [ngClass]="{'text-success': valueindicate(item.quotes.USD.percent_change_1h) , 
-                    'text-danger': !valueindicate(item.quotes.USD.percent_change_1h)}">
-                      <i *ngIf="valueindicate(item.quotes.USD.percent_change_1h)" class="fas fa-caret-up me-1"></i>
-                      <i *ngIf="!valueindicate(item.quotes.USD.percent_change_1h)" class="fas fa-caret-down me-1"></i>
-                      {{ item.quotes.USD.percent_change_1h | number : "1.0-2" }}%
-                    </span>
-                  </td> -->
                   <td >
                     <span [ngClass]="{'text-success': valueindicate(item.quotes.USD.percent_change_1h) , 
                     'text-danger': !valueindicate(item.quotes.USD.percent_change_1h)}">
@@ -46,16 +38,16 @@
                   <td >
                     <span [ngClass]="{'text-success': valueindicate(item.quotes.USD.percent_change_24h) , 
                     'text-danger': !valueindicate(item.quotes.USD.percent_change_24h)}">
-                      <i *ngIf="valueindicate(item.quotes.USD.percent_change_24h)" class="fas fa-caret-up me-1"></i>
-                      <i *ngIf="!valueindicate(item.quotes.USD.percent_change_24h)" class="fas fa-caret-down me-1"></i>
+                      <!-- <i *ngIf="valueindicate(item.quotes.USD.percent_change_24h)" class="fas fa-caret-up me-1"></i>
+                      <i *ngIf="!valueindicate(item.quotes.USD.percent_change_24h)" class="fas fa-caret-down me-1"></i> -->
                       {{ item.quotes.USD.percent_change_24h | number : "1.0-2" }}%
                     </span>
                   </td>
                   <td >
                     <span [ngClass]="{'text-success': valueindicate(item.quotes.USD.percent_change_7d) , 
                     'text-danger': !valueindicate(item.quotes.USD.percent_change_7d)}">
-                      <i *ngIf="valueindicate(item.quotes.USD.percent_change_7d)" class="fas fa-caret-up me-1"></i>
-                      <i *ngIf="!valueindicate(item.quotes.USD.percent_change_7d)" class="fas fa-caret-down me-1"></i>
+                      <!-- <i *ngIf="valueindicate(item.quotes.USD.percent_change_7d)" class="fas fa-caret-up me-1"></i>
+                      <i *ngIf="!valueindicate(item.quotes.USD.percent_change_7d)" class="fas fa-caret-down me-1"></i> -->
                       {{ item.quotes.USD.percent_change_7d | number : "1.0-2" }}%
                     </span>
                   </td>

@@ -22,10 +22,10 @@
               class="fas fa-search fa-fw me-3"></i><span>Search a Project</span></a>
           <!-- <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
               class="fas fa-newspaper fa-fw me-3"></i><span>Crypto News</span></a> -->
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+          <a routerLink="/about" class="list-group-item list-group-item-action py-2 ripple"><i
               class="fas fa-info fa-fw me-3"></i><span>About InvestoCrypt</span></a>
         </div>
-        <p class="text-center mt-5" ><u>v1.0</u></p>
+        <p class="text-center mt-5" ><u>version 1.0</u></p>
         
       </div>
     </nav>
@@ -98,10 +98,10 @@
               <img *ngIf="(user | async)?.uid && authbyGoogle" src="{{(user | async)?.photoURL}}" class="rounded-circle" height="35"
                 alt="" loading="lazy" />
               <!-- User Not Logged in -->
-              <img *ngIf="!(user | async)?.uid" src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="30"
+              <img *ngIf="!(user | async)?.uid" src="../../assets/img/notlogin.png" class="rounded-circle" height="30"
                 alt="" loading="lazy" />
               <!-- User Signed in from Email/Pass -->
-              <img *ngIf="(user | async)?.uid && !authbyGoogle" src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="30"
+              <img *ngIf="(user | async)?.uid && !authbyGoogle" src="./../../assets/img/avatar.png" class="rounded-circle" height="30"
                 alt="" loading="lazy" />
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">

@@ -7,7 +7,6 @@ import { AlternativeapiService } from 'src/app/services/alternativeapi.service';
   styleUrls: ['./marketprices.component.css']
 })
 export class MarketpricesComponent implements OnInit {
-  fngdata: any;
   value: any;
   class: any;
   datarray: any;

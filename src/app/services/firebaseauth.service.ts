@@ -66,7 +66,7 @@ export class FirebaseauthService {
   forgotpassword(email: string) {
     this.auth.sendPasswordResetEmail(email).then(() => {
       alert("Reset link sent to your email")
-      this.router.navigate(['']);
+      this.router.navigate(['/login']);
     }, err => {
       alert(err.message);
     })
@@ -74,7 +74,7 @@ export class FirebaseauthService {
 
   sendemailforverify(user: any) {
     user.sendEmailVerification().then((res: any) => {
-      this.router.navigate(['/verify-email']);
+      this.router.navigate(['/login']);
     }, (err: any) => {
       alert(err.message);
     })

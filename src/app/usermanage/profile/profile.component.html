@@ -1,1 +1,70 @@
-<p>profile works!</p>
+<main style="margin-top: 58px">
+    <div class="container pt-4">
+        <section class="mb-4">
+            <div class="card">
+                <div class="card-header text-center py-3">
+                    <h5 class="mb-0 text-center">
+                        <strong>Profile Information</strong>
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="container text-center">
+                            <!-- User Signed in from Email/Pass -->
+                            <img *ngIf="(user | async)?.uid && !authbyGoogle"
+                                src="../../../assets/img/avatar.png" class="rounded-circle img-fluid"
+                                height="100px" width="100px"
+                                alt="" loading="lazy" />
+                            <img *ngIf="(user | async)?.uid && authbyGoogle" src="{{ (user | async)?.photoURL }}"
+                                class="rounded-circle" alt="" loading="lazy" />
+                        </div>
+                        <h4 class="mt-2">{{ (user | async)?.displayName }}</h4>
+                        <h6>{{ (user | async)?.email }}</h6>
+                        <div class="text-center">
+                            <button class="btn w-30" (click)="logout()" style="background-color: #0cac9c; color: white">
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col">
+                            <strong>Unique User ID: </strong>
+                            {{ (user | async)?.uid }}
+                        </div>
+                    </div>
+                    <hr />
+                    <div *ngIf="(user | async)?.emailVerified" class="row">
+                        <div class="col">
+                            <strong>Email Verification Status: </strong>
+                            <span class="text-success">Verified</span>
+                        </div>
+                    </div>
+                    <ng-template *ngIf="!(user | async)?.emailVerified">
+                        <hr />
+                        <div class="row">
+                            <div class="col">
+                                <strong>Email Verification Status: </strong>
+                                <span class="text-danger">Not Verified</span>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <hr />
+                    <div class="row">
+                        <div class="col">
+                            <strong>Last Login Time: </strong>
+                            {{ lslg }}
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col">
+                            <strong>Profile Created on: </strong>
+                            {{ pfc }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

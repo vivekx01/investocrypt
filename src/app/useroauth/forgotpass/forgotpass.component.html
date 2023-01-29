@@ -1,1 +1,42 @@
-<p>forgotpass works!</p>
+<main style="margin-top: 58px;">
+    <section class=" text-center text-lg-start">
+      <style>
+        .rounded-t-5 {
+          border-top-left-radius: 0.5rem;
+          border-top-right-radius: 0.5rem;
+        }
+    
+        @media (min-width: 992px) {
+          .rounded-tr-lg-0 {
+            border-top-right-radius: 0;
+          }
+    
+          .rounded-bl-lg-5 {
+            border-bottom-left-radius: 0.5rem;
+          }
+        }
+      </style>
+      <div class="card mb-3">
+        <div class="row g-0 d-flex align-items-center">
+          <div class="col-lg-4 d-none d-lg-flex">
+            <img src="./../../../assets/img/050.jpg"
+              class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+          </div>
+          <div class="col-lg-6">
+            <div class="card-body py-5 px-md-5">
+                <h3 class="text-center mb-3">Account Recovery</h3>
+                <!-- Email input -->
+                <div class="input-group md-form form-sm form-3 pl-0">
+                  <input [(ngModel)]="uemail" type="email" name="email" ngModel class="form-control mt-0 amber-border" placeholder="Enter Email Address" aria-describedby="basic-addon9" required>
+                </div>
+                <!-- Submit button -->
+                <button type="submit" (click)="forgotpass()" class="btn btn-block mb-4" style="background-color: #0cac9c; color: white;">Send Recovery Mail</button>
+                <div class="row mb-4 text-center">
+                    <a routerLink="/login" style="color:#0cac9c">Back to Login</a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>
