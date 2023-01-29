@@ -27,14 +27,14 @@
                         <!-- Email input -->
                         <div class="input-group md-form form-sm form-3 pl-0">
                           <input type="text" class="form-control mt-0 amber-border" placeholder="First Name"
-                          ngModel name="fname" aria-describedby="basic-addon9" required>
+                          ngModel name="fname" aria-describedby="basic-addon9" maxlength="30" required>
                         </div>
                       </div>
                       <div class="col-md-6 mb-4">
                         <!-- Password input -->
                         <div class="input-group md-form form-sm form-3 pl-0">
                           <input type="text" class="form-control mt-0 amber-border" placeholder="Last Name"
-                          ngModel name="lname" aria-describedby="basic-addon9" required>
+                          ngModel name="lname" aria-describedby="basic-addon9" maxlength="50" required>
                         </div>
                       </div>
                     </div>
@@ -42,13 +42,13 @@
                     <!-- Email input -->
                     <div class="input-group md-form form-sm form-3 pl-0">
                       <input type="email" class="form-control mt-0 amber-border" placeholder="Enter Email Address"
-                      ngModel name="email" aria-describedby="basic-addon9" required>
+                      ngModel name="email" maxlength="100" aria-describedby="basic-addon9" required>
                     </div>
 
                     <!-- Password input -->
                     <div class="input-group md-form form-sm form-3 pl-0">
                       <input type="password" class="form-control mt-0 amber-border" placeholder="Enter Password"
-                      ngModel name="password" aria-describedby="basic-addon9" required>
+                      ngModel name="password" minlength="8" maxlength="100" aria-describedby="basic-addon9" required>
                     </div>
                     <!-- 2 column grid layout for inline styling -->
                     <div class="row mb-4">

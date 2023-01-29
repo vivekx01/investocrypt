@@ -95,13 +95,13 @@
             <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
               id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
               <!-- User Signed in from Google -->
-              <img *ngIf="(user | async)?.uid && authbyGoogle" src="{{(user | async)?.photoURL}}" class="rounded-circle" height="35"
-                alt="" loading="lazy" />
+              <!-- <img *ngIf="(user | async)?.uid && authbyGoogle" src="{{(user | async)?.photoURL}}" class="rounded-circle" height="35"
+                alt="" loading="lazy" /> -->
               <!-- User Not Logged in -->
               <img *ngIf="!(user | async)?.uid" src="../../assets/img/notlogin.png" class="rounded-circle" height="30"
                 alt="" loading="lazy" />
               <!-- User Signed in from Email/Pass -->
-              <img *ngIf="(user | async)?.uid && !authbyGoogle" src="./../../assets/img/avatar.png" class="rounded-circle" height="30"
+              <img *ngIf="(user | async)?.uid" src="./../../assets/img/avatar.png" class="rounded-circle" height="30"
                 alt="" loading="lazy" />
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">

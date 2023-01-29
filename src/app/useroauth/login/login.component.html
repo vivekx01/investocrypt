@@ -28,12 +28,12 @@
             <form #f="ngForm" (ngSubmit)="loginwithep(f)">
               <!-- Email input -->
               <div class="input-group md-form form-sm form-3 pl-0">
-                <input type="email" name="email" ngModel class="form-control mt-0 amber-border" placeholder="Enter Email Address" aria-describedby="basic-addon9" required>
+                <input maxlength="100" type="email" name="email" ngModel class="form-control mt-0 amber-border" placeholder="Enter Email Address" aria-describedby="basic-addon9" required>
               </div>
   
               <!-- Password input -->
               <div class="input-group md-form form-sm form-3 pl-0">
-                <input type="password" name="password" ngModel class="form-control mt-0 amber-border" placeholder="Enter Password" aria-describedby="basic-addon9" required>
+                <input minlength="8" maxlength="100" type="password" name="password" ngModel class="form-control mt-0 amber-border" placeholder="Enter Password" aria-describedby="basic-addon9" required>
               </div>
   
               <!-- 2 column grid layout for inline styling -->

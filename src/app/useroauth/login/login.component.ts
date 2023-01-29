@@ -17,14 +17,6 @@ export class LoginComponent implements OnInit {
 }
   login(){
     this.fauth.userlogin()
-    this.user.subscribe(
-      (data:any)=>{
-        if (data!==null){
-          JSON.stringify(localStorage.setItem('user',JSON.stringify(data)))
-        }
-        
-      }
-    )
   }
   
   loginwithep(data:NgForm){

@@ -12,6 +12,7 @@ export class LayoutComponent implements OnInit {
   constructor(private fauth:FirebaseauthService){
     this.user= fauth.authInfo
     this.fauth.authInfo.subscribe((res)=>{
+      console.log(res);
       if(res?.providerData[0]?.providerId=="google.com"){
         this.authbyGoogle=true;
       }

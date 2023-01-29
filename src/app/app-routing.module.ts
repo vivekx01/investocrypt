@@ -10,6 +10,15 @@ import { ProfileComponent } from './usermanage/profile/profile.component';
 import { ForgotpassComponent } from './useroauth/forgotpass/forgotpass.component';
 import { LoginComponent } from './useroauth/login/login.component';
 import { RegisterComponent } from './useroauth/register/register.component';
+//Route Protection
+import { 
+  AngularFireAuthGuard,
+  redirectUnauthorizedTo,
+  redirectLoggedInTo
+ } from '@angular/fire/compat/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
+const redirectLoggedInToHome = () => redirectLoggedInTo([''])
 
 const routes: Routes = [
   {
@@ -18,35 +27,51 @@ const routes: Routes = [
   },
   {
     path:"sentiment-analysis",
-    component: SentimentComponent
+    component: SentimentComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: {authGuardPipe: redirectUnauthorizedToLogin}
   },
   {
     path:"market-prices",
-    component: MarketpricesComponent
+    component: MarketpricesComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: {authGuardPipe: redirectUnauthorizedToLogin}
   },
   {
     path:"search",
-    component: SearchprojectComponent
+    component: SearchprojectComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: {authGuardPipe: redirectUnauthorizedToLogin}
   },
   {
     path:"searchdetails/:id",
-    component: ProjectdetailsComponent
+    component: ProjectdetailsComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: {authGuardPipe: redirectUnauthorizedToLogin}
   },
   {
     path:"login",
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: {authGuardPipe: redirectLoggedInToHome}
   },
   {
     path:"register",
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: {authGuardPipe: redirectLoggedInToHome}
   },
   {
     path:"forgot-password",
-    component: ForgotpassComponent
+    component: ForgotpassComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: {authGuardPipe: redirectLoggedInToHome}
   },
   {
     path:"profile",
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: {authGuardPipe: redirectUnauthorizedToLogin}
   },
   {
     path:"about",

@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
-
-
 //Loader
 import { NgxUiLoaderModule,NgxUiLoaderHttpModule,NgxUiLoaderConfig,SPINNER,POSITION,PB_DIRECTION, NgxUiLoaderRouterModule } from "ngx-ui-loader";
 //Module for performing http requests
@@ -14,8 +12,8 @@ import { MainModule } from './main/main.module';
 import { UseroauthModule } from './useroauth/useroauth.module';
 import { UsermanageModule } from './usermanage/usermanage.module';
 import { FaqModule } from './faq/faq.module';
-
-
+//toastr for toast messages
+import { ToastrModule } from 'ngx-toastr';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: "#0cac9c",
@@ -55,7 +53,9 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     MainModule,
     UsermanageModule,
     UseroauthModule,
-    FaqModule
+    FaqModule,
+    //Toastr module
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

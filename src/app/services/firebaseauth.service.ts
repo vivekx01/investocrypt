@@ -4,14 +4,14 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
 import { Observable } from 'rxjs';
-
+import { ToastrService } from 'ngx-toastr';
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseauthService {
   public authInfo: Observable<firebase.User | null>;
   public authType:any;
-  constructor(private http: HttpClient, private auth: AngularFireAuth, private router: Router) {
+  constructor(private http: HttpClient, private auth: AngularFireAuth, private router: Router,private toastr:ToastrService) {
     this.authInfo = this.auth.authState;
   }
   userlogin() {
@@ -25,14 +25,16 @@ export class FirebaseauthService {
         localStorage.setItem('token', 'true');
         this.router.navigate(['']);
       } else {
-        alert("Account Created! Please make sure to verify your email before signing in !");
+        // alert("Account Created! Please make sure to verify your email before signing in !");
+        this.auth.signOut();
+        this.toastr.success('Please make sure to verify your email before signing in!');
         this.router.navigate(['/login']);
       }
 
     }, err => {
-      alert(err.message);
+      // alert(err.message);
+      this.toastr.error('Invalid Credentials')
       this.router.navigate(['/login']);
-
     })
   }
   registerwithep(email: string, password: string, fname: string, lname: string) {
@@ -41,12 +43,11 @@ export class FirebaseauthService {
         displayName: fname + " " + lname,
       })
       this.sendemailforverify(success.user)
-      alert("registration successful check mail");
+      this.auth.signOut();
       this.router.navigate(['/login']);
     }, err => {
-      alert(err.message);
+      this.toastr.error('Oops! Something is not right!')
       this.router.navigate(['/register']);
-
     })
 
   }
@@ -55,28 +56,30 @@ export class FirebaseauthService {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       localStorage.removeItem('true');
-      alert("Logged out successfully");
-      this.router.navigate(['']);
+      this.toastr.success('Logout Successful')
+      this.router.navigate(['/login']);
     }, err => {
-      alert(err.message)
+      this.toastr.error('Something went wrong!')
       this.router.navigate(['']);
     })
 
   }
   forgotpassword(email: string) {
     this.auth.sendPasswordResetEmail(email).then(() => {
-      alert("Reset link sent to your email")
+      // alert("Reset link sent to your email")
+      this.toastr.info('Recovery Link has been sent to your email')
       this.router.navigate(['/login']);
     }, err => {
-      alert(err.message);
+      this.toastr.error('Something went wrong!')
+      // alert(err.message);
     })
   }
 
   sendemailforverify(user: any) {
     user.sendEmailVerification().then((res: any) => {
-      this.router.navigate(['/login']);
+      this.toastr.success('Account Created! Please make sure to verify your email before signing in!')
     }, (err: any) => {
-      alert(err.message);
+      this.toastr.error('Something went wrong!')
     })
   }
 }
