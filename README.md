@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
+## Deployed Version of the application:
+https://investo-crypt.web.app/
+
 ## Screenshots:
 ![1](https://user-images.githubusercontent.com/72996825/215316019-e959ddca-20b7-43ca-b414-1ebe69250ade.png)
 ![2](https://user-images.githubusercontent.com/72996825/215316026-16e057f0-5410-4715-a456-7a1dcad565aa.png)
